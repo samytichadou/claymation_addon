@@ -11,6 +11,7 @@ class CLAYMATION_OT_create_frame_range(bpy.types.Operator):
 
     start_frame : bpy.props.IntProperty(name='Start Frame', default=1)
     end_frame : bpy.props.IntProperty(name='End Frame', default=250)
+    step : bpy.props.IntProperty(name='Step', default=1)
 
 
     @classmethod
@@ -28,6 +29,7 @@ class CLAYMATION_OT_create_frame_range(bpy.types.Operator):
 
         layout.prop(self, 'start_frame')
         layout.prop(self, 'end_frame')
+        layout.prop(self, 'step')
 
 
     def execute(self, context):
@@ -43,7 +45,7 @@ class CLAYMATION_OT_create_frame_range(bpy.types.Operator):
         except AttributeError:
             basis_sk = obj.shape_key_add(name='Basis')
 
-        for i in range(self.start_frame, self.end_frame):
+        for i in range(self.start_frame, self.end_frame, self.step):
             sk_name = claymation_prefix + str(i)
             try:
                 obj.data.shape_keys.key_blocks[sk_name]
