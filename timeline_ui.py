@@ -46,7 +46,7 @@ def drawClaymationTimelineCallbackPx():
         if obj.data.claymation_mesh:
 
             for sk in return_claymation_keys(obj):
-                frame = int(sk.name.split(claymation_prefix)[1])
+                frame = sk[1]
             
                 ### COMPUTE TIMELINE ###
                 x1,x2,y1,y2 = frame, frame, -200, 0

@@ -33,7 +33,7 @@ def claymation_gui(layout, context):
     chk_fr = False
     for sk in return_claymation_keys(obj):
         chk_fr = True
-        c_frame = sk.name.split(claymation_prefix)[1]
+        c_frame = str(sk[1])
         row = col.row(align=True)
         if str(scn.frame_current) == c_frame:
             icon = 'RADIOBUT_ON'

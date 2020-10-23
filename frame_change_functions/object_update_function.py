@@ -20,14 +20,14 @@ def claymation_update_object(object):
 
     for sh_k in return_claymation_keys(object):
 
-        if sh_k.name == claymation_prefix + str(current_frame):
-            if scn.claymation_debug: print(claymation_print + "Toggling On  : " + sh_k.name)
-            sh_k.value = 1
+        if sh_k[0].name == claymation_prefix + str(current_frame):
+            if scn.claymation_debug: print(claymation_print + "Toggling On  : " + sh_k[0].name)
+            sh_k[0].value = 1
 
             object.active_shape_key_index = idx
 
         else:
-            if scn.claymation_debug: print(claymation_print + "Toggling Off : " + sh_k.name)
-            sh_k.value = 0
+            if scn.claymation_debug: print(claymation_print + "Toggling Off : " + sh_k[0].name)
+            sh_k[0].value = 0
 
         idx += 1
