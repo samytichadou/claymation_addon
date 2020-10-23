@@ -1,6 +1,6 @@
 import bpy
 
-from .global_variables import claymation_prefix, claymation_print
+from ..global_variables import claymation_prefix, claymation_print
 
 
 def claymation_update_object(object):

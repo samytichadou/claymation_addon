@@ -40,10 +40,11 @@ import bpy
 
 from .gui import CLAYMATION_PT_object_gui
 
-from .frame_change_handler import claymation_frame_change
+from .frame_change_functions.frame_change_handler import claymation_frame_change
 
-from .op_create_claymation_frame import CLAYMATION_OT_create_frame
-from .op_remove_claymation_frame import CLAYMATION_OT_remove_frame
+from .operator.create_claymation_frame import CLAYMATION_OT_create_frame
+from .operator.remove_claymation_frame import CLAYMATION_OT_remove_frame
+from .operator.remove_claymation_datas import CLAYMATION_OT_remove_datas
 
 # register
 ##################################
@@ -53,6 +54,7 @@ classes = (
             CLAYMATION_PT_object_gui,
             CLAYMATION_OT_create_frame,
             CLAYMATION_OT_remove_frame,
+            CLAYMATION_OT_remove_datas,
         )
 
 def register():

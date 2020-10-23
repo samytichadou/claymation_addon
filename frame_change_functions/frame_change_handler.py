@@ -3,7 +3,7 @@ from bpy.app.handlers import persistent
 
 
 from .frame_update_function import claymation_update_object
-from .global_variables import claymation_print
+from ..global_variables import claymation_print
 
 ### HANDLER ###
 @persistent

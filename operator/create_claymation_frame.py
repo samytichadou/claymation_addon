@@ -1,13 +1,13 @@
 import bpy
 
-from .global_variables import claymation_prefix, claymation_print
+from ..global_variables import claymation_prefix, claymation_print
 
 
 class CLAYMATION_OT_create_frame(bpy.types.Operator):
     """Create Claymation Frame"""
     bl_idname = "claymation.create_frame"
     bl_label = "Create Frame"
-    bl_options = {'REGISTER'}
+    bl_options = {'REGISTER','UNDO'}
 
 
     @classmethod

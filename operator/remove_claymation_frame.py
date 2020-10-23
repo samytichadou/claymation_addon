@@ -1,13 +1,13 @@
 import bpy
 
-from .global_variables import claymation_prefix, claymation_print
+from ..global_variables import claymation_prefix, claymation_print
 
 
 class CLAYMATION_OT_remove_frame(bpy.types.Operator):
     """Remove Claymation Frame"""
     bl_idname = "claymation.remove_frame"
     bl_label = "Remove Frame"
-    bl_options = {'REGISTER'}
+    bl_options = {'REGISTER','UNDO'}
 
 
     @classmethod

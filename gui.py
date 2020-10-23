@@ -22,8 +22,6 @@ class CLAYMATION_PT_object_gui(bpy.types.Panel):
 
         row = layout.row()
         row.prop(scn, 'claymation_debug')
-
-        row = layout.row()
         row.prop(scn, 'claymation_update_toggle')
 
         row = layout.row()
@@ -32,3 +30,4 @@ class CLAYMATION_PT_object_gui(bpy.types.Panel):
         row = layout.row()
         row.operator('claymation.create_frame')
         row.operator('claymation.remove_frame')
+        row.operator('claymation.remove_datas')
