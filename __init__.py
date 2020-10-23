@@ -38,23 +38,29 @@ import bpy
 # IMPORT SPECIFICS
 ##################################
 
-from .gui import CLAYMATION_PT_object_gui
+from .gui import CLAYMATION_PT_mesh_gui, CLAYMATION_PT_sculpt_gui
 
 from .frame_change_functions.frame_change_handler import claymation_frame_change
 
 from .operator.create_claymation_frame import CLAYMATION_OT_create_frame
-from .operator.remove_claymation_frame import CLAYMATION_OT_remove_frame
+from .operator.remove_claymation_specific_frame import CLAYMATION_OT_remove_specific_frame
+from .operator.remove_claymation_current_frame import CLAYMATION_OT_remove_current_frame
 from .operator.remove_claymation_datas import CLAYMATION_OT_remove_datas
+from .operator.go_to_claymation_frame import CLAYMATION_OT_go_to_frame
+from .operator.create_claymation_frame_range import CLAYMATION_OT_create_frame_range
 
 # register
 ##################################
 
 classes = (
-
-            CLAYMATION_PT_object_gui,
+            CLAYMATION_PT_mesh_gui,
+            CLAYMATION_PT_sculpt_gui,
             CLAYMATION_OT_create_frame,
-            CLAYMATION_OT_remove_frame,
+            CLAYMATION_OT_remove_specific_frame,
+            CLAYMATION_OT_remove_current_frame,
             CLAYMATION_OT_remove_datas,
+            CLAYMATION_OT_go_to_frame,
+            CLAYMATION_OT_create_frame_range,
         )
 
 def register():

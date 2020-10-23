@@ -27,9 +27,6 @@ class CLAYMATION_OT_create_frame(bpy.types.Operator):
 
         if scn.claymation_debug: print(claymation_print + "Creating Claymation Frame for " + obj.name) #debug
 
-        if not obj.data.claymation_mesh:
-            obj.data.claymation_mesh = True
-
         try:
             obj.data.shape_keys.key_blocks
             if scn.claymation_debug: print(claymation_print + "Creating Base Shape Keys") #debug

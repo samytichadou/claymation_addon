@@ -12,8 +12,14 @@ class CLAYMATION_OT_remove_datas(bpy.types.Operator):
 
     @classmethod
     def poll(cls, context):
-        if context.object.type in {"MESH", "CURVE"}:
-            return context.object.data.claymation_mesh
+        obj = context.object
+        if obj.type in {"MESH", "CURVE"}:
+            try:
+                for sk in obj.data.shape_keys.key_blocks:
+                    if sk.name.startswith(claymation_prefix):
+                        return True
+            except (AttributeError):
+                return False
 
 
     def invoke(self, context, event):
@@ -35,13 +41,13 @@ class CLAYMATION_OT_remove_datas(bpy.types.Operator):
 
         if scn.claymation_debug: print(claymation_print + "Removing Claymation Datas for " + obj.name) #debug
 
-        for sk in obj.data.shape_keys.key_blocks:
+        try:
+            for sk in obj.data.shape_keys.key_blocks:
+                if sk.name.startswith(claymation_prefix):
+                    obj.shape_key_remove(sk)
 
-            if sk.name.startswith(claymation_prefix):
-
-                obj.shape_key_remove(sk)
-
-        obj.data.claymation_mesh = False
+        except AttributeError:
+            pass
 
         if scn.claymation_debug: print(claymation_print + "Claymation Datas for %s Removed" % obj.name) #debug
 

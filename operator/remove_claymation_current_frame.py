@@ -3,12 +3,11 @@ import bpy
 from ..global_variables import claymation_prefix, claymation_print
 
 
-class CLAYMATION_OT_remove_frame(bpy.types.Operator):
-    """Remove Claymation Frame"""
-    bl_idname = "claymation.remove_frame"
+class CLAYMATION_OT_remove_current_frame(bpy.types.Operator):
+    """Remove Claymation Current Frame"""
+    bl_idname = "claymation.remove_current_frame"
     bl_label = "Remove Frame"
     bl_options = {'REGISTER','UNDO'}
-
 
     @classmethod
     def poll(cls, context):
@@ -27,7 +26,7 @@ class CLAYMATION_OT_remove_frame(bpy.types.Operator):
 
         sk_name = claymation_prefix + str(context.scene.frame_current)
 
-        if scn.claymation_debug: print(claymation_print + "Removing Claymation Frame for " + obj.name) #debug
+        if scn.claymation_debug: print(claymation_print + "Removing Claymation Current Frame for " + obj.name) #debug
 
         obj.shape_key_remove(obj.data.shape_keys.key_blocks[sk_name])
 
