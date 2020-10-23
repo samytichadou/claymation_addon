@@ -2,7 +2,7 @@ import bpy
 from bpy.app.handlers import persistent
 
 
-from .frame_update_function import claymation_update_object
+from .object_update_function import claymation_update_object
 from ..global_variables import claymation_print
 
 ### HANDLER ###

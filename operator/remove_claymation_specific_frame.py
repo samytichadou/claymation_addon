@@ -9,7 +9,7 @@ class CLAYMATION_OT_remove_specific_frame(bpy.types.Operator):
     bl_label = "Remove Frame"
     bl_options = {'REGISTER','UNDO','INTERNAL'}
 
-    frame = bpy.props.StringProperty()
+    frame : bpy.props.StringProperty()
 
     @classmethod
     def poll(cls, context):

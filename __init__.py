@@ -49,6 +49,8 @@ from .operator.remove_claymation_datas import CLAYMATION_OT_remove_datas
 from .operator.go_to_claymation_frame import CLAYMATION_OT_go_to_frame
 from .operator.create_claymation_frame_range import CLAYMATION_OT_create_frame_range
 
+from .timeline_ui import updateTimelineUI
+
 # register
 ##################################
 
@@ -77,6 +79,9 @@ def register():
     bpy.types.Scene.claymation_update_toggle = \
         bpy.props.BoolProperty(name="Update")
 
+    bpy.types.Scene.claymation_timeline_ui = \
+        bpy.props.BoolProperty(name="Timeline UI", update=updateTimelineUI, options={'SKIP_SAVE'})
+
     bpy.types.Mesh.claymation_mesh = \
         bpy.props.BoolProperty(name="Claymation Mesh")
 
@@ -97,6 +102,7 @@ def unregister():
     ### PROPERTIES ###
     del bpy.types.Scene.claymation_debug
     del bpy.types.Scene.claymation_update_toggle
+    del bpy.types.Scene.claymation_timeline_ui
     del bpy.types.Mesh.claymation_mesh
     del bpy.types.Curve.claymation_mesh
 

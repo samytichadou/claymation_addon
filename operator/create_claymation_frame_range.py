@@ -9,8 +9,8 @@ class CLAYMATION_OT_create_frame_range(bpy.types.Operator):
     bl_label = "Create Range"
     bl_options = {'REGISTER','UNDO'}
 
-    start_frame = bpy.props.IntProperty(name='Start Frame', default=1)
-    end_frame = bpy.props.IntProperty(name='End Frame', default=250)
+    start_frame : bpy.props.IntProperty(name='Start Frame', default=1)
+    end_frame : bpy.props.IntProperty(name='End Frame', default=250)
 
 
     @classmethod
